@@ -7,6 +7,7 @@
 - [Helmet](https://github.com/fastify/fastify-helmet) to secure the HTTP(s) requests
 - [Fluent](https://github.com/goat-io/fluent) as ORM
 - and [Firebase](https://firebase.google.com) as Database
+- Deployed using [Google App Engine](https://cloud.google.com/appengine)
 
 ## Installation
 
@@ -46,6 +47,10 @@ or
 
 $ yarn test
 ```
+
+## Firebase Database
+
+![image](https://user-images.githubusercontent.com/48744933/99883000-a7c3bd80-2c24-11eb-889e-73a69b6bb3c6.png)
 
 ## License
 
