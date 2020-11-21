@@ -6,8 +6,16 @@
 - [Fastify](https://www.fastify.io/) as base node framework
 - [Helmet](https://github.com/fastify/fastify-helmet) to secure the HTTP(s) requests
 - [Fluent](https://github.com/goat-io/fluent) as ORM
-- and [Firebase](https://firebase.google.com) as Database
+- [Firebase](https://firebase.google.com) as Database
+- Swagger[Google App Engine](https://cloud.google.com/appengine) as API docs
+- Completely automated pipeline using [Github Actions](https://github.com/features/actions) for CI/CD
 - Deployed using [Google App Engine](https://cloud.google.com/appengine)
+
+## See it in action!
+
+The application was deployed without minimum scaling, so it could take a while to spin up the first server (Just give it a few seconds =) )
+Deployed Backend and Swagger: [Check this link](https://nc-challenge.ew.r.appspot.com/explorer)
+![image](https://user-images.githubusercontent.com/48744933/99884286-5f5ccd80-2c2d-11eb-96c7-5016ac8d44dd.png)
 
 ## Installation
 
