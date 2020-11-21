@@ -7,7 +7,7 @@
 - [Helmet](https://github.com/fastify/fastify-helmet) to secure the HTTP(s) requests
 - [Fluent](https://github.com/goat-io/fluent) as ORM
 - [Firebase](https://firebase.google.com) as Database
-- Swagger[Google App Engine](https://cloud.google.com/appengine) as API docs
+- [Swagger](https://swagger.io/) as API docs
 - Completely automated pipeline using [Github Actions](https://github.com/features/actions) for CI/CD
 - Deployed using [Google App Engine](https://cloud.google.com/appengine)
 
