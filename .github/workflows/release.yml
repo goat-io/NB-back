@@ -21,7 +21,7 @@ jobs:
         env:
           AUTH: ${{ secrets.PROD_SERVICE_ACCOUNT_BASE64 }}
         run: |
-          echo "$AUTH" | base64 --decode > ${HOME}/nc-challenge.json
+          echo "$AUTH" | base64 --decode > /home/runner/work/NC-back/NC-back/nc-challenge.json
 
       - name: Build Project && tests
         run: npm install && npm run test && npm run build
