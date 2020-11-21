@@ -17,6 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Write prod key from base64
+        env:
+          AUTH: ${{ secrets.PROD_SERVICE_ACCOUNT_BASE64 }}
+        run: |
+          echo "$AUTH" | base64 --decode > ${HOME}/nc-challenge.json
+
       - name: Build Project && tests
         run: npm install && npm run test && npm run build
         env:
@@ -26,12 +32,6 @@ jobs:
           AUTH_USE_FIREBASE: true
           DATABASE_FIREBASE_NAME: nc-challenge
           DATABASE_FIREBASE_SERVICE_ACCOUNT_PATH: ./nc-challenge.json
-
-      - name: Write prod key from base64
-        env:
-          AUTH: ${{ secrets.PROD_SERVICE_ACCOUNT_BASE64 }}
-        run: |
-          echo "$AUTH" | base64 --decode > ${HOME}/nc-challenge.json
 
       - name: Deploy Production BACKEND
         uses: actions-hub/gcloud@master
