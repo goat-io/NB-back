@@ -39,4 +39,4 @@ jobs:
           PROJECT_ID: nc-challenge
           APPLICATION_CREDENTIALS: ${{ secrets.PROD_SERVICE_ACCOUNT_BASE64 }}
         with:
-          args: app deploy app.yaml
+          args: app deploy /home/runner/work/NC-back/NC-back/app.yaml
