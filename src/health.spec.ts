@@ -3,13 +3,21 @@ import * as request from 'supertest'
 import { Test, TestingModule } from '@nestjs/testing'
 
 import { FastifyAdapter } from '@nestjs/platform-fastify'
+import { Fluent } from '@goatlab/fluent/dist/Fluent'
 import { INestApplication } from '@nestjs/common'
-import { NCApp } from '../src/application'
+import { NCApp } from './application'
+import { User } from './auth/user/user.entity'
+import { UsersService } from './auth/user/user.service'
 
-describe('AppController (e2e)', () => {
+jest.setTimeout(3 * 60 * 1000)
+
+describe('Test User profile validation', () => {
+  let users: UsersService
   let app: INestApplication
-
   beforeAll(async () => {
+    await Fluent.models([User])
+    users = new UsersService()
+
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [NCApp],
     }).compile()
@@ -19,10 +27,12 @@ describe('AppController (e2e)', () => {
     app.getHttpAdapter().getInstance().ready()
   })
 
-  it('/ (GET)', () => {
+  it('Should return health info', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/health')
       .expect(200)
-      .expect('Hello World!')
+      .then((response) => {
+        expect(response.body.status).toBe('ok')
+      })
   })
 })

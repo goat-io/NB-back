@@ -15,22 +15,24 @@ export class UsersService extends FirebaseConnector<
    *
    * @param input
    */
-  validatePatch(input: UserDtoPatch): string | null {
-    const { email, name } = input
+  validatePatch(profile: UserDtoPatch): string | undefined {
     const isValidEmail = (email: string) => {
       const re = /^(([^<>()[\].,;:\s@"]+(.[^<>()[\].,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return re.test(email)
     }
 
-    if (name && name === '') {
+    const hasEmail = typeof profile.email === 'string'
+    const hasName = typeof profile.name === 'string'
+
+    if (hasName && profile.name === '') {
       return 'Name can´t be empty'
     }
 
-    if (email && email === '') {
+    if (hasEmail && profile.email === '') {
       return 'Email can´t be empty'
     }
 
-    if (email && !isValidEmail(email)) {
+    if (hasEmail && !isValidEmail(profile.email)) {
       return 'Email is not valid'
     }
   }

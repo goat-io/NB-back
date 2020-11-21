@@ -15,7 +15,7 @@ import { GoatOutput } from '@goatlab/fluent/dist/Providers/types'
 import { For } from '@goatlab/fluent/dist/Helpers/For'
 import { UsersService } from './user.service'
 import { Auth } from '@goatlab/fluent/dist/core/Nestjs/Auth/Auth'
-import { OwnerGuard } from 'auth/user/owner.guard'
+import { OwnerGuard } from './owner.guard'
 @ApiTags('Users')
 @Controller('users')
 export class UserController {

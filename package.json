@@ -10,17 +10,19 @@
     "prestart": "npx rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "yarn start:dev",
+    "start": "node dist/src/main",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/src/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "update:packages": "ncu -u && npm install"
+    "update:packages": "ncu -u && npm install",
+    "gcp-build": "tsc -p .",
+    "deploy": "gcloud app deploy"
   },
   "dependencies": {
     "@goatlab/fluent": "^0.4.8",
@@ -44,6 +46,7 @@
     "chokidar": "^3.4.2",
     "fastify-helmet": "^5.0.3",
     "fastify-swagger": "^3.4.0",
+    "firebase-admin": "^9.4.1",
     "nestjs-role-protected": "^0.2.1",
     "rimraf": "^3.0.2",
     "typeorm": "^0.2.28"
