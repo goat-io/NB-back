@@ -35,4 +35,3 @@ lerna-debug.log*
 *.service-account.json
 .env
 nc-challenge.json
-app.yaml
